@@ -410,7 +410,7 @@
                                     <i class="fas fa-chart-line text-warning"></i>\
                                 </div>\
                                 <div>\
-                                    <i class="fas fa-cog me-3 text-warning"></i>\
+                                    <i class="fas fa-cog me-3 text-warning" onclick="func_setting('+floor_k['id_floor']+')"></i>\
                                     <i class="fas fa-trash me-3 text-warning"></i>\
                                     <i class="fas fa-pen text-warning"></i>\
                                 </div>\
@@ -425,7 +425,12 @@
         }
     </script>
 
-
+    <script>
+        function func_setting(id){
+            console.log(id);
+            location.href = 'setting.html'
+        }
+    </script>
 
 </body>
 

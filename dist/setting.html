@@ -8,23 +8,28 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Dashboard - SB Admin</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link href="css/styles.css" rel="stylesheet" />
-    <link href="css/switch.css" rel="stylesheet" />
+    <!-- <link href="css/switch.css" rel="stylesheet" /> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <!-- <script src="https://example.com/fontawesome/v5.15.4/js/all.js" data-keep-original-source="false"></script> -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/4.0.0-alpha.1/css/bootstrap-switch.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-switch/4.0.0-alpha.1/css/bootstrap-switch.min.css"> -->
 
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    
-
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+   
+   
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css"> -->
+    <!-- <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css"/> -->
 </head>
 <style>
     body{
@@ -48,6 +53,68 @@
         font-size: 60px;
         bottom: 0;
     }
+    .switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-bottom: 10px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #f68e56;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #f68e56;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
 </style>
 
 <body class="sb-nav-fixed">
@@ -58,37 +125,66 @@
             <i class="fas fa-arrow-left fs-1 text-white"></i>
         </a>
 
-        <h1 class="c_name mt-1 text-white"></h1>
+        <h1 class="c_name mt-1 text-white "></h1>
         
     </div>
 
-    <div class="d-flex flex-column justify-content-center align-items-center">
-        <i class="fas fa-plug fa-5x mt-5 mb-2  text-warning "></i>
+    <div class="d-flex flex-column justify-content-center align-items-center"  >
+        <i class="fas fa-plug fa-5x mt-5 mb-2  text-dark "></i>
         <h3>สถานะอุปกรณ์ในโรงเรือน</h3>
 
 
     </div>
 
-    <main>
-        <div class="c_card_device">
+    <main> 
+        <div class="c_card_device px-5" >
             
         </div>
         
     </main>
-    
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-        crossorigin="anonymous"></script>
+    <div class="modal fade" tabindex="-1" id="i_modal_time">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title">ตั้งเวลาเปิด-ปิด</h3>
+
+                        <div class="btn btn-icon btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="ki-duotone ki-cross fs-1"><span class="path1"></span><span class="path2"></span></i>
+                        </div>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="mb-4">
+                            <label for="exampleFormControlInput1" class="required form-label">ตั้งเวลา 1</label>
+                            <input type="number" class="form-control form-control-solid" placeholder=""/>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-lg-4 col-md-9 col-sm-12">
+                                <input class="form-control" id="kt_timepicker_1" readonly placeholder="Select time" type="text"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <script src="plugins/global/plugins.bundle.js"></script>
     <script src="js/scripts.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script> -->
     <!-- <script src="assets/demo/chart-area-demo.js"></script>
     <script src="assets/demo/chart-bar-demo.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="js/bootstrap-switch/highlight.js"></script>
-    <script src="js/bootstrap-switch/bootstrap-switch.js"></script>
-    <script src="js/bootstrap-switch/main.js"></script>
+    <!-- <script src="//jonthornton.github.io/jquery-timepicker/jquery.timepicker.js"></script> -->
+
+
+
     
     <script>
     var result = ''     
@@ -113,12 +209,20 @@
           console.log("error");
         }
       });
+
+      
+           
     })
+
+//     $(function() {
+//     $('#kt_timepicker_1').timepicker();
+//   }); 
     
 
     </script>
-    <script>
 
+    <script>
+      
         
 
 
@@ -126,14 +230,14 @@
 
             console.log("data_details", data_details);
             for (var i = 0; i < data_details.length; i++) {
-            console.log(data_card)
-            $('.c_name').html(data_card[i]['name']);
+            // console.log(data_card)
+            // $('.c_name').html(data_card[i]['name']);
 
                 
             
             }
        
-            $('.c_card_home').html(str_card);
+            // $('.c_card_home').html(str_card);
           
         }
 
@@ -178,8 +282,8 @@
 
             var str_card = ''
             for (var j = 0; j < data_device.length; j++) {
-                str_card = str_card + '<div class="card shadow-sm m-4 border-0" style="background-color:#FF8800;border-radius: 20px;">\
-                <div class="card-body p-2 ">\
+                str_card = str_card + '<div class="card shadow-sm m-5 border-0" style="border-radius: 20px;background-color: #ffa658;">\
+                <div class="card-body p-5 ">\
                     <div class="d-flex w-100">\
                         <div class="d-flex w-25 justify-content-center align-items-center">\
                             <div class="">\
@@ -188,18 +292,23 @@
                         </div>\
                         <div class="d-flex w-50 justify-content-start">\
                             <div class="d-flex flex-column align-items-start w-100 ms-2">\
-                                <span class="text-white " id="i_name_device">มีนบุรี</span>\
-                                <h3 class="text-white c_name_device">123</h3>\
+                                <span class=" " id="i_name_device" hidden>'+data_device[j]['name_device']+'</span>\
+                                <h3 class=" c_name_device fa-2x me-5 text-white">'+data_device[j]['name_device']+'</h3>\
                                 <div>\
-                                    <i class="fas fa-clock text-white "></i>\
+                                    <i class="fas fa-clock  fa-2x text-white" onclick="func_setting_time()"></i>\
+                                    <span class="fa-2x ml-2 text-white">18.00</span>\
                                 </div>\
                             </div>\
                         </div>\
                         <div class="d-flex w-25 justify-content-center align-items-center">\
-                            <div class="form-check form-switch form-switch-lg form-check-warning ">\
-                                <input class="form-check-input mt-4" type="checkbox" id="flexSwitchCheckChecked" checked>\
+                            <div class="form-check form-switch form-switch-lg form-check-succes " hidden>\
+                                <input class="form-check-input " type="checkbox" id="flexSwitchCheckChecked" checked>\
                                 <label class="form-check-label" for="flexSwitchCheckChecked"></label>\
                             </div>\
+                            <label class="switch">\
+                                <input type="checkbox">\
+                                <span class="slider round"></span>\
+                            </label>\
                         </div>\
                     </div>\
                 </div>\
@@ -210,11 +319,20 @@
         }
         
 
+     
         
     </script>
 
+    <script>
+        function func_setting_time() {
+            $('#i_modal_time').modal('show')
 
+        }
 
+        
+    </script>
+
+  
 </body>
 
 </html>
