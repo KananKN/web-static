@@ -189,11 +189,14 @@
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
         crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
+
     <script>
         function data_card(data_card){
 
-            console.log("data_card", data_card);
-            var str_card = ''
+        console.log("data_card", data_card);
+        var data_card = [{"id": "1", "name": "test", "provice": "minburi", "temp_provice": "30.47", "humidity": "55.43", "temp_min": "30.47", "temp_max": "30.47", "wind": "30.47", "weater": "little cloud", "floor": [{"id_floor": "1", "time": "2023-04-19 8:13", "temp_floor": "30.47", "humidity_floor": "55.76"}, {"id_floor": "2", "time": "2023-04-19 8:08", "temp_floor": "30.46", "humidity_floor": "56.16"}, {"id_floor": "3", "time": "2023-04-19 8:03", "temp_floor": "30.45", "humidity_floor": "56.67"}, {"id_floor": "4", "time": "2023-04-19 7:58", "temp_floor": "30.44", "humidity_floor": "57.37"}]}]
+
+        var str_card = ''
         for (var i = 0; i < data_card.length; i++) {
             console.log(data_card)
 
@@ -223,7 +226,7 @@
     <script>
     var result = ''     
     var data_details = [{"id": "1", "name": "test", "provice": "minburi", "temp_provice": "30.47", "humidity": "55.43", "temp_min": "30.47", "temp_max": "30.47", "wind": "30.47", "weater": "little cloud", "floor": [{"id_floor": "1", "time": "2023-04-19 8:13", "temp_floor": "30.47", "humidity_floor": "55.76"}, {"id_floor": "2", "time": "2023-04-19 8:08", "temp_floor": "30.46", "humidity_floor": "56.16"}, {"id_floor": "3", "time": "2023-04-19 8:03", "temp_floor": "30.45", "humidity_floor": "56.67"}, {"id_floor": "4", "time": "2023-04-19 7:58", "temp_floor": "30.44", "humidity_floor": "57.37"}]}]
-
+    data_card(data_details)    
     // $(document).ready(function () {
 
     //   $.ajax({
@@ -246,7 +249,7 @@
     //     }
     //   });
     // })
-    data_card(data_details)
+   
 
     </script>
     
