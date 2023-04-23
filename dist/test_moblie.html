@@ -18,7 +18,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
     <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 
 
@@ -239,6 +240,8 @@
         function data_card(data_card){
 
         console.log("data_card", data_card);
+        var data_card = [{"id": "1", "name": "test", "provice": "minburi", "temp_provice": "30.47", "humidity": "55.43", "temp_min": "30.47", "temp_max": "30.47", "wind": "30.47", "weater": "little cloud", "floor": [{"id_floor": "1", "time": "2023-04-19 8:13", "temp_floor": "30.47", "humidity_floor": "55.76"}, {"id_floor": "2", "time": "2023-04-19 8:08", "temp_floor": "30.46", "humidity_floor": "56.16"}, {"id_floor": "3", "time": "2023-04-19 8:03", "temp_floor": "30.45", "humidity_floor": "56.67"}, {"id_floor": "4", "time": "2023-04-19 7:58", "temp_floor": "30.44", "humidity_floor": "57.37"}]}]
+
         var str_card = ''
         for (var i = 0; i < data_card.length; i++) {
             console.log(data_card)
