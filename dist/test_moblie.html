@@ -209,77 +209,7 @@
                 <!--card floor  -->
                 <div class="c_card mb-2 w-100">
 
-                <!-- </div> -->
-                <!-- <div class="card shadow m-4 border-0" style="border-radius: 20px;"> -->
-                    
-
-
-                <!-- </div> -->
-                    <!-- <div class="card-body p-4 ">
-                        <div class="d-flex w-100 ">
-                            <div class="d-flex w-50 justify-content-start">
-                                <div class="d-flex flex-column">
-                                    <div class="d-flex">
-                                        <i class="fas fa-lightbulb text-warning pe-2"></i>
-                                        <span class="mb-1" id="i_floor_name">Floor 3</span>
-                                    </div>
-                                    
-                                    <div class="d-flex">
-                                        <span class="text-muted" style="font-size: 9px;" id="i_time" >22/02/2023  23:52</p>
-                                    </div>
-                                    
-                                </div>
-
-                            </div>
-                            <div class="d-flex w-50 justify-content-center">
-                                <div class="d-flex flex-column align-items-end w-100">
-                                    <i class="fa-solid fa-house text-warning"></i>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="d-flex w-100 d-flex justify-content-between ">
-                            <div class="w-50 d-flex flex-column align-items-center">
-                                <span>Temperature</span>
-                                <div class="card-body p-2 w-100" style="background-color: #90A9D7;border-radius: 16px;">
-                                    <div class="d-flex w-100">
-                                        <div class="d-flex w-50 justify-content-center align-items-center">
-                                            <i class="fa-solid fa-temperature-three-quarters fa-2x text-white"></i>
-                                        </div>
-                                        <div class="d-flex w-50 flex-column align-items-center">
-                                            <h6 class="mb-0 text-white" id="i_temp">35</h6>
-                                            <span class="text-white">ํC</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="w-50 d-flex flex-column align-items-center ms-2">
-                                <span>Humidity</span>
-                                <div class="card-body p-2 w-100" style="background-color: #E56969;border-radius: 16px;">
-                                    <div class="d-flex w-100">
-                                        <div class="d-flex w-50 justify-content-center align-items-center">
-                                            <i class="fas fa-tint fa-2x text-white"></i>
-                                        </div>
-                                        <div class="d-flex w-50 flex-column align-items-center">
-                                            <h6 class="mb-0 text-white" id="i_humidity">50</h6>
-                                            <span class="text-white">%</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="d-flex w-100 justify-content-between mt-3">
-                            <div>
-                                <i class="fas fa-chart-line text-warning"></i>
-                            </div>
-                            <div>
-                                <i class="fas fa-cog me-3 text-warning"></i>
-                                <i class="fas fa-trash me-3 text-warning"></i>
-                                <i class="fas fa-pen text-warning"></i>
-                            </div>
-                        </div>
-                    </div> -->
+                
                 </div>
             </main>
             <footer class="py-4 bg-light mt-auto">
@@ -312,7 +242,7 @@
     $(document).ready(function () {
 
       $.ajax({
-        url: 'http://b2ercoding.servebeer.com:5853/test',
+        // url: 'http://b2ercoding.servebeer.com:5853/test',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
         },
@@ -326,6 +256,8 @@
         },
         error: function () {
           console.log("error");
+          data_error = [{"id": "1", "name": "test", "provice": "minburi", "temp_provice": "30.47", "humidity": "55.43", "temp_min": "30.47", "temp_max": "30.47", "wind": "30.47", "weater": "little cloud", "floor": [{"id_floor": "1", "time": "2023-04-19 8:13", "temp_floor": "30.47", "humidity_floor": "55.76"}, {"id_floor": "2", "time": "2023-04-19 8:08", "temp_floor": "30.46", "humidity_floor": "56.16"}, {"id_floor": "3", "time": "2023-04-19 8:03", "temp_floor": "30.45", "humidity_floor": "56.67"}, {"id_floor": "4", "time": "2023-04-19 7:58", "temp_floor": "30.44", "humidity_floor": "57.37"}]}]
+          data_card(data_error)
         }
       });
     })
@@ -407,7 +339,7 @@
                             </div>\
                             <div class="d-flex w-100 justify-content-between mt-3">\
                                 <div>\
-                                    <i class="fas fa-chart-line text-warning"></i>\
+                                    <i class="fas fa-chart-line text-warning" onclick="func_chart()"></i>\
                                 </div>\
                                 <div>\
                                     <i class="fas fa-cog me-3 text-warning" onclick="func_setting('+floor_k['id_floor']+')"></i>\
@@ -429,6 +361,11 @@
         function func_setting(id){
             console.log(id);
             location.href = 'setting.html'
+        }
+    </script>
+    <script>
+        function func_chart(){
+            window.location.href='dashboard_chart.html' 
         }
     </script>
 
