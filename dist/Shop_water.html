@@ -64,41 +64,41 @@
                     </div>
                     <div class="col-8  " >
                       <div class="d-flex m-2" style="height: 200px;">
-                        <div class="card me-2" style="width: 18rem;">
+                        <div class="card me-2" style="width: 18rem;" onclick="func_seletct_card('1')">
                           <div class="card-body text-center p-0 h-100 ">
                             <div class="d-flex flex-column justify-content-center h-75" style="height: 100;">
-                              <h5 class="mt-2">2</h5>
+                              <h5 class="mt-2 ">2</h5>
                               <h6 class="">Packs</h6>
                               <p style="font-size:10px;">12 botties</p> 
                             </div>
                             <div class="bg-danger w-100 h-25 d-flex align-items-center justify-content-center rounded">
-                              <h5 class="m-0">-116</h5>
+                              <h5 class="m-0">120</h5>
                             </div>
                             
                           </div>
                         </div>
-                        <div class="card me-2" style="width: 18rem;">
+                        <div class="card me-2" style="width: 18rem;" onclick="func_seletct_card('2')">
                           <div class="card-body text-center p-0 h-100">
                             <div class="d-flex flex-column justify-content-center h-75" style="height: 100;">
-                              <h5 class="mt-2">2</h5>
+                              <h5 class="mt-2">3</h5>
                               <h6 class="">Packs</h6>
-                              <p style="font-size:10px;">12 botties</p> 
+                              <p style="font-size:10px;">18 botties</p> 
                             </div>
                             <div class="bg-danger w-100 h-25 d-flex align-items-center justify-content-center rounded">
-                              <h5 class="m-0">-116</h5>
+                              <h5 class="m-0">160</h5>
                             </div>
                             
                           </div>
                         </div>
-                        <div class="card " style="width: 18rem;">
+                        <div class="card " style="width: 18rem;" onclick="func_seletct_card('3')">
                           <div class="card-body text-center p-0 h-100">
                             <div class="d-flex flex-column justify-content-center h-75 " style="height: 100;">
-                              <h5 class="mt-2">2</h5>
+                              <h5 class="mt-2">4</h5>
                               <h6 class="">Packs</h6>
-                              <p style="font-size:10px;">12 botties</p> 
+                              <p style="font-size:10px;">24 botties</p> 
                             </div>
                             <div class="bg-danger w-100 h-25 d-flex align-items-center justify-content-center rounded">
-                              <h5 class="m-0">-116</h5>
+                              <h5 class="m-0">200</h5>
                             </div>
                             
                           </div>
@@ -108,50 +108,54 @@
                       
                     </div>
                   </div>
-                  <div class="w-100 d-flex  border-0 bg-white"  >
-                    <div class=" w-100 p-2 border-0 " >
-                      <div class="d-flex">
-                        <div class="w-50 pt-5">
-                          <div class="d-flex justify-content-center align-items-center h-50" >
-                            <img alt="Pic" src="assets/img/รูปน้ำสิงห์.png" style="width:100%;text-align: center;"/>
+                  <div class="c_showCard" style="display:none;" >
+                    <div class="w-100 d-flex  border-0 bg-white ">
+                      <div class=" w-100 p-2 border-0 " >
+                        <div class="d-flex">
+                          <div class="w-50">
+                            <div class="d-flex justify-content-center align-items-center h-100" >
+                              <img alt="Pic" src="assets/img/รูปน้ำสิงห์.png" style="width:100%;text-align: center;"/>
+                            </div>
                           </div>
-                        </div>
-                        <div class="w-50 ">
-                          <div class="d-flex justify-content-center  h-50 pt-2 py-3" >
-                            <div class="card shadow-sm border-2 border-secondary" style="width: 18rem;height: 250px;">
-                              <div class="card-body p-0">
-                                <div class="d-flex justify-content-center align-items-center flex-column w-100 h-100">
-                                  <div class="h-75 d-flex justify-content-center align-items-center flex-column">
-                                    <h1>2</h1>
-                                    <h3>Packs</h3>
-                                    <p style="font-size:10px;">12 botties</p>
+                          <div class="w-50 ">
+                            <div class="d-flex justify-content-center  h-50 pt-2 py-3" >
+                              <div class="card shadow-sm border-2 border-secondary" style="width: 18rem;height: 250px;">
+                                <div class="card-body p-0">
+                                  <div class="d-flex justify-content-center align-items-center flex-column w-100 h-100">
+                                    <div class="h-75 d-flex justify-content-center align-items-center flex-column">
+                                      <h1 id="i_packs"></h1>
+                                      <h3>Packs</h3>
+                                      <p style="font-size:10px;" id="i_quantity" > </p>
+                                    </div>
+                                    <div class="d-flex h-25 w-100 bg-danger rounded-bottom justify-content-center align-items-center">
+                                      <h1 id="i_price">120 บาท</h1>
+                                    </div>
+                                     
                                   </div>
-                                  <div class="d-flex h-25 w-100 bg-danger rounded-bottom justify-content-center align-items-center">
-                                    <h1>120 บาท</h1>
-                                  </div>
-                                   
+                                  
                                 </div>
-                                
                               </div>
                             </div>
                           </div>
                         </div>
+                        <div class="d-flex w-100 p-2">
+                          <h5>น้ำดื่มสิงห์ ขนาด 1.5 ลิตร แพ็ค 6 ขวด จำนวน </h5>
+                            <h5 class="c_packs me-2"></h5> <h5>แพ็ค</h5>
+                        </div>
+                        <div class="d-flex w-100 p-2">
+                          <button type="button" class="btn btn-xl btn-danger w-100">ซื้อ</button>
+                        </div>
+              
+                  
+                        
                       </div>
-                      <div class="d-flex w-100 p-2">
-                        <h5>น้ำดื่มสิงห์ ขนาด 1.5 ลิตร แพ็ค 6 ขวด จำนวน 2 แพ็ค</h5>
-                      </div>
-                      <div class="d-flex w-100 p-2">
-                        <button type="button" class="btn btn-danger w-100">ซื้อ</button>
-                      </div>
-            
-                
                       
+                      
+  
+                      <!-- <div id="i_select_card"></div> -->
                     </div>
-                    
-                    
-
-                    <!-- <div id="i_select_card"></div> -->
                   </div>
+                  
                 
             </main>
             
@@ -168,7 +172,51 @@
     <script src="js/datatables-simple-demo.js"></script>
 
 
-    <script></script>
+    <script>
+      var data_shop = [{
+        "id":"1",
+        "packs":"2",
+        "botties":"12",
+        "price":"120",
+      },
+    {
+        "id":"2",
+        "packs":"3",
+        "botties":"18",
+        "price":"160",
+    },
+    {
+        "id":"3",
+        "packs":"4",
+        "botties":"24",
+        "price":"200",
+    },
+        ]
+      
+        $('.c_showCard').hide()  
+
+      function func_seletct_card(x){
+        console.log(typeof x );
+        $('.c_showCard').show()
+        var str_card = ''
+        for (let i = 0; i < data_shop.length; i++) {
+          console.log(data_shop);
+          if (x == data_shop[i]['id']) {
+            $('#i_packs').html(data_shop[i]['packs']);
+            $('#i_quantity').html(data_shop[i]['botties'] + ' botties');
+            $('#i_price').html(data_shop[i]['price'] + 'บาท');
+            $('.c_packs').html(data_shop[i]['packs']);
+          }
+
+         
+        }
+        
+
+      }
+
+      // func_seletct_card()
+
+    </script>
 </body>
 
 </html>
